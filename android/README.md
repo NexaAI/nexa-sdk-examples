@@ -117,54 +117,65 @@ nexa-sdk-examples/
 
 ### Step 0: Preparing to Download the Model File
 
-```kotlin
-// Parse model list from assets
-val baseJson = assets.open("model_list.json").bufferedReader().use { it.readText() }
-modelList = Json.decodeFromString<List<ModelData>>(baseJson)
+This step prepares the application environment and data structures.
 
-// Set download directory
-downloadDir = modelList.first().modelDir(this)
-if (!downloadDir.exists()) {
-    downloadDir.mkdirs()
-}
+```kotlin
+// Parse model list configuration from assets
+val modelList = parseModelListFromAssets()
+
+// Set download directory for model files
+val downloadDir = setupModelDirectory()
+
+
 ```
+
+**Notes:**
+- Parse model list configuration from assets
+- Set download directory for model files
 
 ### Step 1: Initialize Nexa SDK Environment
 
-```kotlin
-// Initialize Nexa SDK environment
-private fun initNexaSdk(nativeLibPath: String) {
-    Os.setenv("ADSP_LIBRARY_PATH", nativeLibPath, true)
-    Os.setenv("LD_LIBRARY_PATH", nativeLibPath, true)
-    Os.setenv("NEXA_PLUGIN_PATH", nativeLibPath, true)
-}
+This step initializes the Nexa SDK with the application context.
 
-// Get native library path and initialize
-val nativeLibPath: String = applicationContext.applicationInfo.nativeLibraryDir
-initNexaSdk(nativeLibPath)
+```kotlin
+    NexaSdk.init(applicationContext)
+}
 ```
+
+**Notes:**
+- Initialize Nexa SDK with application context
+- Must be called before other SDK operations
+- Only needs to be called once
 
 ### Step 2: Add System Prompt (Optional)
 
+This step adds system prompts to both LLM and VLM chat lists for consistent AI behavior.
+
 ```kotlin
 // Add system prompt for LLM
-private fun addSystemPrompt(sysPrompt: String) {
-    llmSystemPrompt = ChatMessage("system", sysPrompt)
-    chatList.add(llmSystemPrompt)
-    
-    // Add system prompt for VLM
-    vlmSystemPrompty = VlmChatMessage(
-        role = "system", 
-        contents = listOf(VlmContent("text", sysPrompt))
-    )
-    vlmChatList.add(vlmSystemPrompty)
-}
+val llmSystemPrompt = ChatMessage("system", sysPrompt)
+chatList.add(llmSystemPrompt)
+
+// Add system prompt for VLM
+val vlmSystemPrompt = VlmChatMessage(
+    role = "system", 
+    contents = listOf(VlmContent("text", sysPrompt))
+)
+vlmChatList.add(vlmSystemPrompt)
 ```
+
+**Notes:**
+- System prompt defines AI assistant behavior and role
+- LLM uses `ChatMessage` format
+- VLM uses `VlmChatMessage` format, supports text, image, audio content
+- Optional step, but recommended for better conversation experience
 
 ### Step 3: Download Model
 
+This step handles model downloading with progress tracking and error handling.
+
 ```kotlin
-// Download model files using OkDownload
+// Download model files (example using OkDownload)
 val downloadTask = DownloadTask.Builder(modelUrl, downloadDir)
     .setFilename(filename)
     .setPassIfAlreadyCompleted(true)
@@ -173,14 +184,19 @@ val downloadTask = DownloadTask.Builder(modelUrl, downloadDir)
 downloadTask.enqueue(listener)
 ```
 
+**Notes:**
+- **OkDownload is optional** - you can also use other download library
+
 ### Step 4: Load Model
+
+This step loads the selected model (LLM or VLM) with appropriate configuration.
 
 ```kotlin
 // Load LLM Model
 LlmWrapper.builder().llmCreateInput(
     LlmCreateInput(
-        model_path = selectModelData.modelFile(this@MainActivity)!!.absolutePath,
-        tokenizer_path = selectModelData.tokenFile(this@MainActivity)?.absolutePath,
+        model_path = modelFile.absolutePath,
+        tokenizer_path = tokenFile?.absolutePath,
         config = ModelConfig(
             nCtx = 1024,
             max_tokens = 2048,
@@ -189,23 +205,17 @@ LlmWrapper.builder().llmCreateInput(
             nBatch = 1,
             nUBatch = 1,
             nSeqMax = 1
-        ),
-        plugin_id = pluginId
+        )
     )
-).build().onSuccess {
-    llmWrapper = it
-    // Model loaded successfully
-}.onFailure {
-    // Handle loading failure
-    Log.e("LLM", "Model loading failed", it)
-}
+).build().onSuccess { llmWrapper = it }
+ .onFailure { /* handle error */ }
 
-// Load VLM Model
+// Load VLM Model (plugin_id = null)
 VlmWrapper.builder().vlmCreateInput(
     VlmCreateInput(
-        model_path = selectModelData.modelFile(this@MainActivity)!!.absolutePath,
+        model_path = modelFile.absolutePath,
         tokenizer_path = null,
-        mmproj_path = selectModelData.mmprojTokenFile(this@MainActivity)?.absolutePath,
+        mmproj_path = mmprojFile?.absolutePath,
         config = ModelConfig(
             nCtx = 1024,
             max_tokens = 2048,
@@ -215,65 +225,84 @@ VlmWrapper.builder().vlmCreateInput(
             nUBatch = 1,
             nSeqMax = 1
         ),
-        plugin_id = pluginId
+        plugin_id = null
     )
-).build().onSuccess {
-    vlmWrapper = it
-    // Model loaded successfully
-}.onFailure {
-    // Handle loading failure
-    Log.e("VLM", "Model loading failed", it)
-}
+).build().onSuccess { vlmWrapper = it }
+ .onFailure { /* handle error */ }
 ```
 
+**Notes:**
+- Choose LLM or VLM loader based on model type
+- LLM requires model file path and tokenizer file path (no plugin_id needed)
+- VLM requires model file path and mmproj file path (plugin_id = null)
+- Use `ModelConfig` to configure model parameters
+- Recommend executing loading operations on background threads
+
 ### Step 5: Send Message
+
+This step handles sending messages to the loaded model with proper template conversion.
 
 **Important: You cannot directly pass text to `generateStreamFlow`. You must first use `applyChatTemplate` to convert chat messages.**
 
 ```kotlin
 // Generate text with LLM
-// Step 1: Add user message to chat list
 chatList.add(ChatMessage("user", inputString))
-
-// Step 2: Apply chat template to convert messages to formatted text
 llmWrapper.applyChatTemplate(chatList.toTypedArray(), tools, false).onSuccess { result ->
-    // Step 3: Use the formatted text for generation
     llmWrapper.generateStreamFlow(
-        result.formattedText,  // This is the converted text, not the raw input
+        result.formattedText,  // Converted text, not raw input
         GenerationConfigSample().toGenerationConfig(grammarString)
     ).collect { streamResult ->
         handleResult(sb, streamResult)
     }
-}.onFailure {
-    // Handle template application failure
-    Log.e("LLM", "Template application failed", it)
-}
+}.onFailure { /* handle error */ }
 
 // Generate response with VLM
-// Step 1: Create and add VLM chat message
 val sendMsg = VlmChatMessage(
     role = "user", 
     contents = listOf(VlmContent("text", inputString))
 )
 vlmChatList.add(sendMsg)
 
-// Step 2: Apply chat template to convert VLM messages
 vlmWrapper.applyChatTemplate(vlmChatList.toTypedArray(), tools, false)
     .onSuccess { result ->
-        // Step 3: Use the formatted text for generation
         vlmWrapper.generateStreamFlow(
-            result.formattedText,  // This is the converted text, not the raw input
+            result.formattedText,  // Converted text, not raw input
             GenerationConfigSample().toGenerationConfig(grammarString)
         ).collect { streamResult ->
             handleResult(sb, streamResult)
         }
-    }.onFailure {
-        // Handle template application failure
-        Log.e("VLM", "Template application failed", it)
+    }.onFailure { /* handle error */ }
+
+// Handle streaming results
+when (streamResult) {
+    is LlmStreamResult.Token -> {
+        // Process generated token text
+        // Update UI with streamResult.text
     }
+    is LlmStreamResult.Completed -> {
+        // Generation finished successfully
+        // Access performance data via streamResult.profile
+    }
+    is LlmStreamResult.Error -> {
+        // Handle generation error
+        // Check streamResult.throwable for error details
+    }
+}
 ```
 
+**Notes:**
+- **Must call `applyChatTemplate` first**: Convert chat messages to formatted text
+- **Cannot pass text directly**: `generateStreamFlow` requires converted text
+- **Streaming processing**: Use `collect` to receive streaming generation results
+
+**Stream Result Types:**
+- **`Token`**: Contains generated text (`streamResult.text`) - append to UI progressively
+- **`Completed`**: Generation finished - contains performance data (`streamResult.profile`)
+- **`Error`**: Generation failed - contains error details (`streamResult.throwable`)
+
 ### Step 6: Others (Stop & Unload)
+
+This step handles stopping stream generation and unloading models.
 
 ```kotlin
 // Stop current stream generation
@@ -281,14 +310,16 @@ llmWrapper.stopStream()
 // or for VLM
 vlmWrapper.stopStream()
 
-// Stop streaming and destroy model resources
-llmWrapper.stopStream()
+// Unload model and release resources
 llmWrapper.destroy()
-
 // or for VLM
-vlmWrapper.stopStream()
 vlmWrapper.destroy()
 ```
+
+**Notes:**
+- **`stopStream()`**: Stop current streaming generation
+- **`destroy()`**: Release model resources and free memory
+- **Resource management**: Recommend calling when app exits or switching models
 
 ## Configuration Options
 
