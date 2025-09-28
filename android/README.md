@@ -51,7 +51,7 @@ The project uses Nexa AI SDK from Maven Central in `app/build.gradle.kts`:
 
 ```kotlin
 dependencies {
-    implementation("io.github.nfl-nexa:core:0.0.3")
+    implementation("ai.nexa:core:0.0.3")
     // Other dependencies...
 }
 ```
@@ -117,7 +117,6 @@ nexa-sdk-examples/
 
 ### Step 0: Preparing to Download the Model File
 
-This step prepares the application environment and data structures.
 
 ```kotlin
 // Parse model list configuration from assets
@@ -139,7 +138,6 @@ This step initializes the Nexa SDK with the application context.
 
 ```kotlin
     NexaSdk.init(applicationContext)
-}
 ```
 
 **Notes:**
