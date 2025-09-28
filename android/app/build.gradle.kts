@@ -51,7 +51,8 @@ android {
 }
 
 dependencies {
-    implementation("io.github.nfl-nexa:core:0.0.2")
+//    implementation(":app-release@aar")
+    implementation("ai.nexa:core:0.0.3")
     implementation(":okdownload-core@aar")
     implementation(":okdownload-sqlite@aar")
     implementation(":okdownload-okhttp@aar")
