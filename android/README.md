@@ -2,27 +2,27 @@
 
 ## Overview
 
-This is a comprehensive Android tutorial project demonstrating how to use the Nexa AI SDK to run AI models on Android devices. The project includes complete functionality for model downloading, loading, text generation, and visual question answering.
+This is an Android tutorial project demonstrating how to use the Nexa AI SDK to run AI models on Android devices. The project includes model downloading, loading, text generation, and visual question answering functionality.
 
 ## Features
 
-- **Model Download Management**: Download AI models from HuggingFace and other sources
-- **Multi-Model Support**: LLM (Large Language Models) and VLM (Vision-Language Models)
-- **Real-time Chat**: Streaming generation based on Kotlin Flow
-- **Visual Question Answering**: Support for image input and visual understanding
-- **Model Configuration**: Flexible model parameter configuration
-- **Local Storage**: Model file caching and management
+- Model download management
+- Support for LLM and VLM models
+- Real-time chat conversation
+- Visual question answering
+- Model parameter configuration
+- Local file caching
 
 ## Supported Models
 
 ### LLM Models
-- **Qwen3-0.6B-Q8_0**: Lightweight Chinese dialogue model
-- **Qwen3-1.8B-Q8_0**: Medium-scale Chinese dialogue model
-- **Qwen3-4B-Q8_0**: Large-scale Chinese dialogue model
+- Qwen3-0.6B-Q8_0: Lightweight Chinese dialogue model
+- Qwen3-1.8B-Q8_0: Medium-scale Chinese dialogue model
+- Qwen3-4B-Q8_0: Large-scale Chinese dialogue model
 
 ### VLM Models
-- **SmolVLM-256M-Instruct-Q8_0**: Lightweight vision-language model
-- **SmolVLM-256M-Instruct-f16**: High-quality vision-language model
+- SmolVLM-256M-Instruct-Q8_0: Lightweight vision-language model
+- SmolVLM-256M-Instruct-f16: High-quality vision-language model
 
 ## Quick Start
 
@@ -34,7 +34,7 @@ This is a comprehensive Android tutorial project demonstrating how to use the Ne
 
 ### 2. Project Setup
 
-Ensure Maven Central repository is configured in `android/settings.gradle.kts`:
+Configure Maven Central repository in `settings.gradle.kts`:
 
 ```kotlin
 dependencyResolutionManagement {
@@ -47,7 +47,7 @@ dependencyResolutionManagement {
 
 ### 3. Dependencies
 
-The project uses Nexa AI SDK from Maven Central in `android/app/build.gradle.kts`:
+The project uses Nexa AI SDK from Maven Central in `app/build.gradle.kts`:
 
 ```kotlin
 dependencies {
@@ -81,138 +81,87 @@ dependencies {
 ### VLM Visual Q&A
 
 1. Ensure a VLM model is loaded
-2. Select or capture an image
-3. Enter a question about the image
-4. Click "Send" to get visual analysis
+2. Enter a question in the input field
+3. Click "Send" to get the response
+4. The model will process the text input
 
 ## Project Structure
 
 ```
-android-tutorial/
-├── app/
-│   ├── src/main/
-│   │   ├── java/com/nexa/demo/
-│   │   │   ├── MainActivity.kt          # Main activity
-│   │   │   ├── bean/
-│   │   │   │   ├── ModelData.kt         # Model data structure
-│   │   │   │   └── DownloadableFile.kt  # Downloadable file structure
-│   │   │   ├── FileConfig.kt            # File configuration
-│   │   │   └── GenerationConfigSample.kt # Generation config sample
-│   │   ├── assets/
-│   │   │   ├── model_list.json          # Model list configuration
-│   │   │   ├── model_list_local.json    # Local model configuration
-│   │   │   └── model_list_all.json      # Complete model configuration
-│   │   └── res/                         # Resource files
-│   └── build.gradle.kts                 # App-level build configuration
-├── build.gradle.kts                     # Project-level build configuration
-└── README.md                           # Project documentation
+nexa-sdk-examples/
+├── android/
+│   ├── app/
+│   │   ├── src/main/
+│   │   │   ├── java/com/nexa/demo/
+│   │   │   │   ├── MainActivity.kt          # Main activity
+│   │   │   │   ├── bean/
+│   │   │   │   │   ├── ModelData.kt         # Model data structure
+│   │   │   │   │   └── DownloadableFile.kt  # Downloadable file structure
+│   │   │   │   ├── FileConfig.kt            # File configuration
+│   │   │   │   └── GenerationConfigSample.kt # Generation config sample
+│   │   │   ├── assets/
+│   │   │   │   ├── model_list.json          # Model list configuration
+│   │   │   │   ├── model_list_local.json    # Local model configuration
+│   │   │   │   └── model_list_all.json      # Complete model configuration
+│   │   │   └── res/                         # Resource files
+│   │   └── build.gradle.kts                 # App-level build configuration
+│   ├── build.gradle.kts                     # Project-level build configuration
+│   ├── gradle/                              # Gradle wrapper and dependencies
+│   ├── gradlew                              # Gradle wrapper script
+│   ├── gradle.properties                    # Gradle properties
+│   └── settings.gradle.kts                  # Project settings
+└── README.md                               # Project documentation
 ```
 
-## Core Code Examples
+## Step-by-Step Implementation
 
-### LLM Model Initialization
-
-```kotlin
-// Initialize LLM model
-val llm = LlmWrapper.builder()
-    .llmCreateInput(LlmCreateInput(
-        model_path = modelPath,
-        tokenizer_path = tokenizerPath,
-        config = ModelConfig(
-            nCtx = 1024,
-            max_tokens = 2048,
-            nThreads = 4,
-            nThreadsBatch = 4,
-            nBatch = 1,
-            nUBatch = 1,
-            nSeqMax = 1
-        ),
-        plugin_id = "llama_cpp"
-    ))
-    .build()
-    .getOrThrow()
-```
-
-### VLM Model Initialization
+### Step 0: Preparing to Download the Model File
 
 ```kotlin
-// Initialize VLM model
-val vlm = VlmWrapper.builder()
-    .vlmCreateInput(VlmCreateInput(
-        model_path = modelPath,
-        mmproj_path = mmprojPath,
-        tokenizer_path = null,
-        config = ModelConfig(
-            nCtx = 1024,
-            max_tokens = 2048,
-            nThreads = 4,
-            nThreadsBatch = 4,
-            nBatch = 1,
-            nUBatch = 1,
-            nSeqMax = 1
-        ),
-        plugin_id = "llama_cpp"
-    ))
-    .build()
-    .getOrThrow()
-```
+// Parse model list from assets
+val baseJson = assets.open("model_list.json").bufferedReader().use { it.readText() }
+modelList = Json.decodeFromString<List<ModelData>>(baseJson)
 
-### LLM Text Generation
-
-```kotlin
-// Generate text with LLM
-llm.generateStreamFlow(prompt, GenerationConfig(
-    maxTokens = 128,
-    stopWords = arrayOf("</s>", "<|im_end|>")
-)).collect { result ->
-    when (result) {
-        is LlmStreamResult.Token -> {
-            // Handle generated token
-            appendText(result.text)
-        }
-        is LlmStreamResult.Completed -> {
-            // Generation completed
-            Log.d("LLM", "Generation completed")
-        }
-        is LlmStreamResult.Error -> {
-            // Handle error
-            Log.e("LLM", "Generation error", result.throwable)
-        }
-    }
+// Set download directory
+downloadDir = modelList.first().modelDir(this)
+if (!downloadDir.exists()) {
+    downloadDir.mkdirs()
 }
 ```
 
-### VLM Visual Question Answering
+### Step 1: Initialize Nexa SDK Environment
 
 ```kotlin
-// Create VLM chat message with image
-val vlmMessage = VlmChatMessage(
-    role = "user",
-    contents = listOf(
-        VlmContent(type = "text", text = question),
-        VlmContent(type = "image", text = imagePath)
+// Initialize Nexa SDK environment
+private fun initNexaSdk(nativeLibPath: String) {
+    Os.setenv("ADSP_LIBRARY_PATH", nativeLibPath, true)
+    Os.setenv("LD_LIBRARY_PATH", nativeLibPath, true)
+    Os.setenv("NEXA_PLUGIN_PATH", nativeLibPath, true)
+}
+
+// Get native library path and initialize
+val nativeLibPath: String = applicationContext.applicationInfo.nativeLibraryDir
+initNexaSdk(nativeLibPath)
+```
+
+### Step 2: Add System Prompt (Optional)
+
+```kotlin
+// Add system prompt for LLM
+private fun addSystemPrompt(sysPrompt: String) {
+    llmSystemPrompt = ChatMessage("system", sysPrompt)
+    chatList.add(llmSystemPrompt)
+    
+    // Add system prompt for VLM
+    vlmSystemPrompty = VlmChatMessage(
+        role = "system", 
+        contents = listOf(VlmContent("text", sysPrompt))
     )
-)
-
-// Generate response with VLM
-vlm.generateStreamFlow(formattedPrompt, GenerationConfig(
-    maxTokens = 32
-)).collect { result ->
-    when (result) {
-        is LlmStreamResult.Token -> {
-            appendText(result.text)
-        }
-        is LlmStreamResult.Completed -> {
-            Log.d("VLM", "Generation completed")
-        }
-        is LlmStreamResult.Error -> {
-            Log.e("VLM", "Generation error", result.throwable)
-        }
-    }
+    vlmChatList.add(vlmSystemPrompty)
 }
 ```
 
-### Model Download
+### Step 3: Download Model
 
 ```kotlin
 // Download model files using OkDownload
@@ -222,6 +171,123 @@ val downloadTask = DownloadTask.Builder(modelUrl, downloadDir)
     .build()
 
 downloadTask.enqueue(listener)
+```
+
+### Step 4: Load Model
+
+```kotlin
+// Load LLM Model
+LlmWrapper.builder().llmCreateInput(
+    LlmCreateInput(
+        model_path = selectModelData.modelFile(this@MainActivity)!!.absolutePath,
+        tokenizer_path = selectModelData.tokenFile(this@MainActivity)?.absolutePath,
+        config = ModelConfig(
+            nCtx = 1024,
+            max_tokens = 2048,
+            nThreads = 4,
+            nThreadsBatch = 4,
+            nBatch = 1,
+            nUBatch = 1,
+            nSeqMax = 1
+        ),
+        plugin_id = pluginId
+    )
+).build().onSuccess {
+    llmWrapper = it
+    // Model loaded successfully
+}.onFailure {
+    // Handle loading failure
+    Log.e("LLM", "Model loading failed", it)
+}
+
+// Load VLM Model
+VlmWrapper.builder().vlmCreateInput(
+    VlmCreateInput(
+        model_path = selectModelData.modelFile(this@MainActivity)!!.absolutePath,
+        tokenizer_path = null,
+        mmproj_path = selectModelData.mmprojTokenFile(this@MainActivity)?.absolutePath,
+        config = ModelConfig(
+            nCtx = 1024,
+            max_tokens = 2048,
+            nThreads = 4,
+            nThreadsBatch = 4,
+            nBatch = 1,
+            nUBatch = 1,
+            nSeqMax = 1
+        ),
+        plugin_id = pluginId
+    )
+).build().onSuccess {
+    vlmWrapper = it
+    // Model loaded successfully
+}.onFailure {
+    // Handle loading failure
+    Log.e("VLM", "Model loading failed", it)
+}
+```
+
+### Step 5: Send Message
+
+**Important: You cannot directly pass text to `generateStreamFlow`. You must first use `applyChatTemplate` to convert chat messages.**
+
+```kotlin
+// Generate text with LLM
+// Step 1: Add user message to chat list
+chatList.add(ChatMessage("user", inputString))
+
+// Step 2: Apply chat template to convert messages to formatted text
+llmWrapper.applyChatTemplate(chatList.toTypedArray(), tools, false).onSuccess { result ->
+    // Step 3: Use the formatted text for generation
+    llmWrapper.generateStreamFlow(
+        result.formattedText,  // This is the converted text, not the raw input
+        GenerationConfigSample().toGenerationConfig(grammarString)
+    ).collect { streamResult ->
+        handleResult(sb, streamResult)
+    }
+}.onFailure {
+    // Handle template application failure
+    Log.e("LLM", "Template application failed", it)
+}
+
+// Generate response with VLM
+// Step 1: Create and add VLM chat message
+val sendMsg = VlmChatMessage(
+    role = "user", 
+    contents = listOf(VlmContent("text", inputString))
+)
+vlmChatList.add(sendMsg)
+
+// Step 2: Apply chat template to convert VLM messages
+vlmWrapper.applyChatTemplate(vlmChatList.toTypedArray(), tools, false)
+    .onSuccess { result ->
+        // Step 3: Use the formatted text for generation
+        vlmWrapper.generateStreamFlow(
+            result.formattedText,  // This is the converted text, not the raw input
+            GenerationConfigSample().toGenerationConfig(grammarString)
+        ).collect { streamResult ->
+            handleResult(sb, streamResult)
+        }
+    }.onFailure {
+        // Handle template application failure
+        Log.e("VLM", "Template application failed", it)
+    }
+```
+
+### Step 6: Others (Stop & Unload)
+
+```kotlin
+// Stop current stream generation
+llmWrapper.stopStream()
+// or for VLM
+vlmWrapper.stopStream()
+
+// Stop streaming and destroy model resources
+llmWrapper.stopStream()
+llmWrapper.destroy()
+
+// or for VLM
+vlmWrapper.stopStream()
+vlmWrapper.destroy()
 ```
 
 ## Configuration Options
@@ -246,59 +312,69 @@ ModelConfig(
 ### GenerationConfig
 
 ```kotlin
-GenerationConfig(
-    maxTokens = 128,                    // Maximum generation tokens
-    stopWords = arrayOf("</s>"),        // Stop words
-    samplerConfig = SamplerConfig(
-        temperature = 0.7f,             // Temperature parameter
-        topP = 0.9f,                    // Top-p sampling
-        repetitionPenalty = 1.1f       // Repetition penalty
-    )
-)
+// Create GenerationConfig using GenerationConfigSample
+val config = GenerationConfigSample(
+    maxTokens = 32,
+    topK = 40,
+    topP = 0.95f,
+    temperature = 0.8f,
+    penaltyLastN = 1.0f,
+    penaltyPresent = 0.0f,
+    seed = -1
+).toGenerationConfig(grammarString)
 ```
 
 ## Best Practices
 
-### 1. Memory Management
+### Prompt Template Conversion
 
 ```kotlin
-// Release model resources promptly
-try {
-    val llm = LlmWrapper.builder()...
-    // Use model...
-} finally {
-    llm?.close()
+// ❌ Wrong: Direct text input
+llm.generateStreamFlow("Hello, how are you?", config)
+
+// ✅ Correct: Use applyChatTemplate first
+chatList.add(ChatMessage("user", "Hello, how are you?"))
+llmWrapper.applyChatTemplate(chatList.toTypedArray(), tools, false).onSuccess { result ->
+    llm.generateStreamFlow(result.formattedText, config)
 }
 ```
 
-### 2. Error Handling
+### Memory Management
 
 ```kotlin
-// Use Result for initialization errors
+// Stop streaming and destroy model resources
+llmWrapper.stopStream()
+llmWrapper.destroy()
+
+// or for VLM
+vlmWrapper.stopStream()
+vlmWrapper.destroy()
+```
+
+### Error Handling
+
+```kotlin
+// Handle initialization errors
 val result = LlmWrapper.builder()
     .llmCreateInput(input)
     .build()
 
-result.fold(
-    onSuccess = { llm ->
-        // Initialization successful
-        Log.d("LLM", "Model loaded successfully")
-    },
-    onFailure = { error ->
-        // Handle initialization failure
-        Log.e("LLM", "Failed to load model", error)
-    }
-)
+result.onSuccess { llm ->
+    // Model loaded successfully
+    Log.d("LLM", "Model loaded successfully")
+}.onFailure { error ->
+    // Handle loading failure
+    Log.e("LLM", "Model loading failed", error)
+}
 ```
 
-### 3. Async Operations
+### Async Operations
 
 ```kotlin
 // Perform model operations on background thread
 lifecycleScope.launch(Dispatchers.IO) {
-    val result = llm.generateStreamFlow(prompt, config)
+    llm.generateStreamFlow(prompt, config)
         .collect { streamResult ->
-            // Switch to main thread for UI updates
             withContext(Dispatchers.Main) {
                 updateUI(streamResult)
             }
@@ -330,8 +406,7 @@ lifecycleScope.launch(Dispatchers.IO) {
 ```kotlin
 // Enable verbose logging
 ModelConfig(
-    verbose = true,
-    // Other parameters...
+    verbose = true
 )
 
 // Check model status
@@ -349,6 +424,6 @@ Issues and Pull Requests are welcome to improve this tutorial project.
 
 ## Related Links
 
-- [Nexa AI SDK Documentation](./android/README.md)
+- [Nexa AI SDK Documentation](./README.md)
 - [Project Source Code](https://github.com/nfl-nexa/nexa-sdk)
 - [Issue Tracker](https://github.com/nfl-nexa/nexa-sdk/issues)
