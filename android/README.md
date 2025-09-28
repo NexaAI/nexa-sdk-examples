@@ -51,7 +51,7 @@ The project uses Nexa AI SDK from Maven Central in `app/build.gradle.kts`:
 
 ```kotlin
 dependencies {
-    implementation("io.github.nfl-nexa:core:0.0.2")
+    implementation("io.github.nfl-nexa:core:0.0.3")
     // Other dependencies...
 }
 ```
