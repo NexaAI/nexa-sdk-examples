@@ -29,6 +29,7 @@ import com.nexa.demo.bean.modelDir
 import com.nexa.demo.bean.modelFile
 import com.nexa.demo.bean.tokenFile
 import com.nexa.sdk.LlmWrapper
+import com.nexa.sdk.NexaSdk
 import com.nexa.sdk.VlmWrapper
 import com.nexa.sdk.bean.ChatMessage
 import com.nexa.sdk.bean.LlmCreateInput
@@ -82,7 +83,6 @@ class MainActivity : ComponentActivity() {
     private lateinit var downloadDir: File
     private lateinit var modelList: List<ModelData>
     private var selectModelId = ""
-    private val pluginId = "llama_cpp"
     private var isLoadVlmModel = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -146,20 +146,7 @@ class MainActivity : ComponentActivity() {
         parseModelList()
         downloadDir = modelList.first().modelDir(this)
         //
-        val nativeLibPath: String = applicationContext.applicationInfo.nativeLibraryDir;
-        initNexaSdk(nativeLibPath)
-        //
-        Log.d(TAG, "Os:" + Os.getenv("ADSP_LIBRARY_PATH"))
-        val libDir = File(nativeLibPath)
-        if (libDir.exists() && libDir.isDirectory) {
-            val files = libDir.listFiles()
-            Log.d(TAG, "files:" + files.size)
-            files?.forEach { file ->
-                Log.d("NativeLibs", "file name: ${file.name}, Size: ${file.length()} bytes")
-            }
-        } else {
-            Log.d("NativeLibs", "none dir：$nativeLibPath")
-        }
+        initNexaSdk()
         //
         val sysPrompt = """\
 You are Nays Campaign Manager, an AI assistant responsible for managing customer campaigns and investigating campaign-related issues.
@@ -192,10 +179,8 @@ Note: You must use the campaign_investigation function whenever a customer asks 
     /**
      * Step 1. initNexaSdk environment
      */
-    private fun initNexaSdk(nativeLibPath: String) {
-        Os.setenv("ADSP_LIBRARY_PATH", nativeLibPath, true)
-        Os.setenv("LD_LIBRARY_PATH", nativeLibPath, true)
-        Os.setenv("NEXA_PLUGIN_PATH", nativeLibPath, true)
+    private fun initNexaSdk() {
+        NexaSdk.init(applicationContext)
     }
 
     /**
@@ -372,8 +357,7 @@ Note: You must use the campaign_investigation function whenever a customer asks 
                                 nBatch = 1,
                                 nUBatch = 1,
                                 nSeqMax = 1
-                            ),
-                            plugin_id = pluginId
+                            )
                         )
                     ).build().onSuccess {
                         isLoadVlmModel = false
@@ -405,7 +389,7 @@ Note: You must use the campaign_investigation function whenever a customer asks 
                                 nUBatch = 1,
                                 nSeqMax = 1
                             ),
-                            plugin_id = pluginId
+                            plugin_id = null
                         ).apply {
                             Log.d(TAG, "VlmCreateInput: $this")
                         }
