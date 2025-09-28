@@ -125,7 +125,6 @@ val modelList = parseModelListFromAssets()
 // Set download directory for model files
 val downloadDir = setupModelDirectory()
 
-
 ```
 
 **Notes:**
@@ -145,7 +144,7 @@ This step initializes the Nexa SDK with the application context.
 - Must be called before other SDK operations
 - Only needs to be called once
 
-### Step 2: Add System Prompt (Optional)
+### Step 2: Add System Prompt
 
 This step adds system prompts to both LLM and VLM chat lists for consistent AI behavior.
 
@@ -163,10 +162,26 @@ vlmChatList.add(vlmSystemPrompt)
 ```
 
 **Notes:**
-- System prompt defines AI assistant behavior and role
+- **System prompt is crucial** - defines AI assistant behavior, role, and response style
+- **Controls output format** - specify response format (e.g., Markdown, JSON, plain text)
+- **Sets response constraints** - control reply length, tone, and content guidelines
+- **Required for consistent responses** - without system prompt, AI responses may be inconsistent
+- **Sets conversation context** - tells the AI how to behave and what role to play
 - LLM uses `ChatMessage` format
 - VLM uses `VlmChatMessage` format, supports text, image, audio content
-- Optional step, but recommended for better conversation experience
+- **Recommended to always include** for better conversation experience
+
+**System Prompt Examples:**
+```kotlin
+// Example 1: Markdown format with length limit
+val sysPrompt = "You are a helpful assistant. Always respond in Markdown format. Keep responses under 200 words."
+
+// Example 2: JSON format for structured responses
+val sysPrompt = "You are a data assistant. Always respond in valid JSON format with 'answer' and 'confidence' fields."
+
+// Example 3: Professional tone with specific guidelines
+val sysPrompt = "You are a professional consultant. Provide concise, accurate answers. Use bullet points for lists."
+```
 
 ### Step 3: Download Model
 
