@@ -323,6 +323,11 @@ llmWrapper.stopStream()
 // or for VLM
 vlmWrapper.stopStream()
 
+// Reset model state (clear chat context)
+llmWrapper.reset()
+// or for VLM
+vlmWrapper.reset()
+
 // Unload model and release resources
 llmWrapper.destroy()
 // or for VLM
@@ -331,6 +336,7 @@ vlmWrapper.destroy()
 
 **Notes:**
 - **`stopStream()`**: Stop current streaming generation
+- **`reset()`**: Clear chat context and reset model state
 - **`destroy()`**: Release model resources and free memory
 - **Resource management**: Recommend calling when app exits or switching models
 
@@ -460,7 +466,7 @@ Log.d("Model", "Context size: ${config.nCtx}")
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the Apache License 2.0. See the [LICENSE](https://github.com/NexaAI/nexa-sdk/blob/main/LICENSE) file for details.
 
 ## Contributing
 
@@ -468,6 +474,6 @@ Issues and Pull Requests are welcome to improve this tutorial project.
 
 ## Related Links
 
-- [Nexa AI SDK Documentation](./README.md)
-- [Project Source Code](https://github.com/nfl-nexa/nexa-sdk)
-- [Issue Tracker](https://github.com/nfl-nexa/nexa-sdk/issues)
+- [Nexa AI SDK Documentation](https://github.com/NexaAI/nexa-sdk)
+- [Project Source Code](https://github.com/NexaAI/nexa-sdk)
+- [Issue Tracker](https://github.com/NexaAI/nexa-sdk/issues)
