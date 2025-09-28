@@ -34,7 +34,7 @@ This is a comprehensive Android tutorial project demonstrating how to use the Ne
 
 ### 2. Project Setup
 
-Ensure Maven Central repository is configured in `settings.gradle.kts`:
+Ensure Maven Central repository is configured in `android/settings.gradle.kts`:
 
 ```kotlin
 dependencyResolutionManagement {
@@ -47,7 +47,7 @@ dependencyResolutionManagement {
 
 ### 3. Dependencies
 
-The project uses Nexa AI SDK from Maven Central:
+The project uses Nexa AI SDK from Maven Central in `android/app/build.gradle.kts`:
 
 ```kotlin
 dependencies {
@@ -349,6 +349,6 @@ Issues and Pull Requests are welcome to improve this tutorial project.
 
 ## Related Links
 
-- [Nexa AI SDK Documentation](../../android/README.md)
+- [Nexa AI SDK Documentation](./android/README.md)
 - [Project Source Code](https://github.com/nfl-nexa/nexa-sdk)
 - [Issue Tracker](https://github.com/nfl-nexa/nexa-sdk/issues)
