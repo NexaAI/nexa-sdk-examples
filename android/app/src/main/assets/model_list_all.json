@@ -61,5 +61,29 @@
     "supportS3": true,
     "modelUrl": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/resolve/main/qwen2.5-1.5b-instruct-q8_0.gguf?download=true",
     "mmprojOrTokenUrl": ""
+  },
+  {
+    "id": "qwen3-reranker-0.6b-iq4_nl-imat",
+    "displayName": "qwen3-reranker-0.6b-iq4_nl-imat",
+    "modelName": "qwen3-reranker-0.6b-iq4_nl-imat.gguf",
+    "mmprojOrTokenName": "",
+    "sizeGb": 0.36,
+    "params": "0.6 B",
+    "features": ["Chat", "Summarization"],
+    "type": "chat",
+    "modelUrl": "https://huggingface.co/johnniang/Qwen3-Reranker-0.6B-IQ4_NL-GGUF/resolve/main/qwen3-reranker-0.6b-iq4_nl-imat.gguf",
+    "mmprojOrTokenUrl": ""
+  },
+  {
+    "id": "Qwen3-0.6B-IQ4_NL",
+    "displayName": "Qwen3-0.6B-IQ4_NL",
+    "modelName": "Qwen3-0.6B-IQ4_NL.gguf",
+    "mmprojOrTokenName": "",
+    "sizeGb": 0.36,
+    "params": "0.6 B",
+    "features": ["Chat", "Summarization"],
+    "type": "chat",
+    "modelUrl": "https://huggingface.co/NexaAI/Qwen3-0.6B-GGUF/resolve/main/Qwen3-0.6B-IQ4_NL.gguf",
+    "mmprojOrTokenUrl": ""
   }
 ]

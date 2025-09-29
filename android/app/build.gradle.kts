@@ -9,6 +9,15 @@ android {
     namespace = "com.nexa.demo"
     compileSdk = 36
 
+//    signingConfigs {
+//        create("release") {
+//            storeFile = file("test")
+//            storePassword = "123456"
+//            keyAlias = "test"
+//            keyPassword = "123456"
+//        }
+//    }
+
     defaultConfig {
         applicationId = "com.nexa.demo"
         minSdk = 27
