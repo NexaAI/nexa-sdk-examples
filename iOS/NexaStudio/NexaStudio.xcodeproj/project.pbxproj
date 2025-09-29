@@ -1,0 +1,703 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		20004EBE2E5DA109001B61AD /* NexaAI in Frameworks */ = {isa = PBXBuildFile; productRef = 20004EBD2E5DA109001B61AD /* NexaAI */; };
+		207D4E492E80FF5400942DB5 /* NexaAI in Frameworks */ = {isa = PBXBuildFile; productRef = 207D4E482E80FF5400942DB5 /* NexaAI */; };
+		209E0ADC2E4B0CF000F9B89A /* NexaAI in Frameworks */ = {isa = PBXBuildFile; productRef = 209E0ADB2E4B0CF000F9B89A /* NexaAI */; };
+		20E364AF2E8A2A8F0048F934 /* NexaAI in Frameworks */ = {isa = PBXBuildFile; productRef = 20E364AE2E8A2A8F0048F934 /* NexaAI */; };
+		20EEC9392E2FC94600B4C18B /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 20EEC9382E2FC94600B4C18B /* MarkdownUI */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		20CB1BE52E1B5A560074CB0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 20CB1BCE2E1B5A540074CB0F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 20CB1BD52E1B5A540074CB0F;
+			remoteInfo = NexaStudio;
+		};
+		20CB1BEF2E1B5A560074CB0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 20CB1BCE2E1B5A540074CB0F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 20CB1BD52E1B5A540074CB0F;
+			remoteInfo = NexaStudio;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		20CB1BD62E1B5A540074CB0F /* NexaStudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NexaStudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		20CB1BE42E1B5A560074CB0F /* NexaStudioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NexaStudioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		20CB1BEE2E1B5A560074CB0F /* NexaStudioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NexaStudioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		20CB22842E1CEBFF0074CB0F /* Exceptions for "NexaStudio" folder in "NexaStudio" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 20CB1BD52E1B5A540074CB0F /* NexaStudio */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		20CB1BD82E1B5A540074CB0F /* NexaStudio */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				20CB22842E1CEBFF0074CB0F /* Exceptions for "NexaStudio" folder in "NexaStudio" target */,
+			);
+			path = NexaStudio;
+			sourceTree = "<group>";
+		};
+		20CB1BE72E1B5A560074CB0F /* NexaStudioTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NexaStudioTests;
+			sourceTree = "<group>";
+		};
+		20CB1BF12E1B5A560074CB0F /* NexaStudioUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NexaStudioUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		20CB1BD32E1B5A540074CB0F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				207D4E492E80FF5400942DB5 /* NexaAI in Frameworks */,
+				20004EBE2E5DA109001B61AD /* NexaAI in Frameworks */,
+				209E0ADC2E4B0CF000F9B89A /* NexaAI in Frameworks */,
+				20E364AF2E8A2A8F0048F934 /* NexaAI in Frameworks */,
+				20EEC9392E2FC94600B4C18B /* MarkdownUI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20CB1BE12E1B5A560074CB0F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20CB1BEB2E1B5A560074CB0F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		20A2C4E32E27E4E1004812C8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		20CB1BCD2E1B5A540074CB0F = {
+			isa = PBXGroup;
+			children = (
+				20CB1BD82E1B5A540074CB0F /* NexaStudio */,
+				20CB1BE72E1B5A560074CB0F /* NexaStudioTests */,
+				20CB1BF12E1B5A560074CB0F /* NexaStudioUITests */,
+				20A2C4E32E27E4E1004812C8 /* Frameworks */,
+				20CB1BD72E1B5A540074CB0F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		20CB1BD72E1B5A540074CB0F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				20CB1BD62E1B5A540074CB0F /* NexaStudio.app */,
+				20CB1BE42E1B5A560074CB0F /* NexaStudioTests.xctest */,
+				20CB1BEE2E1B5A560074CB0F /* NexaStudioUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		20CB1BD52E1B5A540074CB0F /* NexaStudio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 20CB1BF82E1B5A560074CB0F /* Build configuration list for PBXNativeTarget "NexaStudio" */;
+			buildPhases = (
+				20CB1BD22E1B5A540074CB0F /* Sources */,
+				20CB1BD32E1B5A540074CB0F /* Frameworks */,
+				20CB1BD42E1B5A540074CB0F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				20CB1BD82E1B5A540074CB0F /* NexaStudio */,
+			);
+			name = NexaStudio;
+			packageProductDependencies = (
+				20EEC9382E2FC94600B4C18B /* MarkdownUI */,
+				209E0ADB2E4B0CF000F9B89A /* NexaAI */,
+				20004EBD2E5DA109001B61AD /* NexaAI */,
+				207D4E482E80FF5400942DB5 /* NexaAI */,
+				20E364AE2E8A2A8F0048F934 /* NexaAI */,
+			);
+			productName = NexaStudio;
+			productReference = 20CB1BD62E1B5A540074CB0F /* NexaStudio.app */;
+			productType = "com.apple.product-type.application";
+		};
+		20CB1BE32E1B5A560074CB0F /* NexaStudioTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 20CB1BFB2E1B5A560074CB0F /* Build configuration list for PBXNativeTarget "NexaStudioTests" */;
+			buildPhases = (
+				20CB1BE02E1B5A560074CB0F /* Sources */,
+				20CB1BE12E1B5A560074CB0F /* Frameworks */,
+				20CB1BE22E1B5A560074CB0F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				20CB1BE62E1B5A560074CB0F /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				20CB1BE72E1B5A560074CB0F /* NexaStudioTests */,
+			);
+			name = NexaStudioTests;
+			packageProductDependencies = (
+			);
+			productName = NexaStudioTests;
+			productReference = 20CB1BE42E1B5A560074CB0F /* NexaStudioTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		20CB1BED2E1B5A560074CB0F /* NexaStudioUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 20CB1BFE2E1B5A560074CB0F /* Build configuration list for PBXNativeTarget "NexaStudioUITests" */;
+			buildPhases = (
+				20CB1BEA2E1B5A560074CB0F /* Sources */,
+				20CB1BEB2E1B5A560074CB0F /* Frameworks */,
+				20CB1BEC2E1B5A560074CB0F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				20CB1BF02E1B5A560074CB0F /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				20CB1BF12E1B5A560074CB0F /* NexaStudioUITests */,
+			);
+			name = NexaStudioUITests;
+			packageProductDependencies = (
+			);
+			productName = NexaStudioUITests;
+			productReference = 20CB1BEE2E1B5A560074CB0F /* NexaStudioUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		20CB1BCE2E1B5A540074CB0F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					20CB1BD52E1B5A540074CB0F = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					20CB1BE32E1B5A560074CB0F = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 20CB1BD52E1B5A540074CB0F;
+					};
+					20CB1BED2E1B5A560074CB0F = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 20CB1BD52E1B5A540074CB0F;
+					};
+				};
+			};
+			buildConfigurationList = 20CB1BD12E1B5A540074CB0F /* Build configuration list for PBXProject "NexaStudio" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 20CB1BCD2E1B5A540074CB0F;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				20EEC9372E2FC94600B4C18B /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
+				20E364AD2E8A2A8F0048F934 /* XCRemoteSwiftPackageReference "nexa-sdk" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 20CB1BD72E1B5A540074CB0F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				20CB1BD52E1B5A540074CB0F /* NexaStudio */,
+				20CB1BE32E1B5A560074CB0F /* NexaStudioTests */,
+				20CB1BED2E1B5A560074CB0F /* NexaStudioUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		20CB1BD42E1B5A540074CB0F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20CB1BE22E1B5A560074CB0F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20CB1BEC2E1B5A560074CB0F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		20CB1BD22E1B5A540074CB0F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20CB1BE02E1B5A560074CB0F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20CB1BEA2E1B5A560074CB0F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		20CB1BE62E1B5A560074CB0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 20CB1BD52E1B5A540074CB0F /* NexaStudio */;
+			targetProxy = 20CB1BE52E1B5A560074CB0F /* PBXContainerItemProxy */;
+		};
+		20CB1BF02E1B5A560074CB0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 20CB1BD52E1B5A540074CB0F /* NexaStudio */;
+			targetProxy = 20CB1BEF2E1B5A560074CB0F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		20CB1BF62E1B5A560074CB0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		20CB1BF72E1B5A560074CB0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		20CB1BF92E1B5A560074CB0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CODE_SIGN_ENTITLEMENTS = NexaStudio/NexaStudio.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FG82FCBXT9;
+				ENABLE_PREVIEWS = YES;
+				GCC_C_LANGUAGE_STANDARD = c17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NexaStudio/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NexaSampleApp;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to take photos.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone access is required to enable real-time voice interaction with the assistant.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We need access to your photo library to save the image.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to save the image.";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = Launch;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nexa.ai.nexastudio-sample-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				XROS_DEPLOYMENT_TARGET = 2.5;
+			};
+			name = Debug;
+		};
+		20CB1BFA2E1B5A560074CB0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CODE_SIGN_ENTITLEMENTS = NexaStudio/NexaStudio.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FG82FCBXT9;
+				ENABLE_PREVIEWS = YES;
+				GCC_C_LANGUAGE_STANDARD = c17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NexaStudio/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NexaSampleApp;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to take photos.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone access is required to enable real-time voice interaction with the assistant.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We need access to your photo library to save the image.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to save the image.";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = Launch;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nexa.ai.nexastudio-sample-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				XROS_DEPLOYMENT_TARGET = 2.5;
+			};
+			name = Release;
+		};
+		20CB1BFC2E1B5A560074CB0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ai.nexa.NexaStudioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NexaStudio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NexaStudio";
+				XROS_DEPLOYMENT_TARGET = 2.5;
+			};
+			name = Debug;
+		};
+		20CB1BFD2E1B5A560074CB0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ai.nexa.NexaStudioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NexaStudio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NexaStudio";
+				XROS_DEPLOYMENT_TARGET = 2.5;
+			};
+			name = Release;
+		};
+		20CB1BFF2E1B5A560074CB0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ai.nexa.NexaStudioUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_TARGET_NAME = NexaStudio;
+				XROS_DEPLOYMENT_TARGET = 2.5;
+			};
+			name = Debug;
+		};
+		20CB1C002E1B5A560074CB0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ai.nexa.NexaStudioUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_TARGET_NAME = NexaStudio;
+				XROS_DEPLOYMENT_TARGET = 2.5;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		20CB1BD12E1B5A540074CB0F /* Build configuration list for PBXProject "NexaStudio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20CB1BF62E1B5A560074CB0F /* Debug */,
+				20CB1BF72E1B5A560074CB0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		20CB1BF82E1B5A560074CB0F /* Build configuration list for PBXNativeTarget "NexaStudio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20CB1BF92E1B5A560074CB0F /* Debug */,
+				20CB1BFA2E1B5A560074CB0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		20CB1BFB2E1B5A560074CB0F /* Build configuration list for PBXNativeTarget "NexaStudioTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20CB1BFC2E1B5A560074CB0F /* Debug */,
+				20CB1BFD2E1B5A560074CB0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		20CB1BFE2E1B5A560074CB0F /* Build configuration list for PBXNativeTarget "NexaStudioUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20CB1BFF2E1B5A560074CB0F /* Debug */,
+				20CB1C002E1B5A560074CB0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		20E364AD2E8A2A8F0048F934 /* XCRemoteSwiftPackageReference "nexa-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:NexaAI/nexa-sdk.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		20EEC9372E2FC94600B4C18B /* XCRemoteSwiftPackageReference "swift-markdown-ui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/swift-markdown-ui.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		20004EBD2E5DA109001B61AD /* NexaAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NexaAI;
+		};
+		207D4E482E80FF5400942DB5 /* NexaAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NexaAI;
+		};
+		209E0ADB2E4B0CF000F9B89A /* NexaAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NexaAI;
+		};
+		20E364AE2E8A2A8F0048F934 /* NexaAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20E364AD2E8A2A8F0048F934 /* XCRemoteSwiftPackageReference "nexa-sdk" */;
+			productName = NexaAI;
+		};
+		20EEC9382E2FC94600B4C18B /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20EEC9372E2FC94600B4C18B /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
+			productName = MarkdownUI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 20CB1BCE2E1B5A540074CB0F /* Project object */;
+}

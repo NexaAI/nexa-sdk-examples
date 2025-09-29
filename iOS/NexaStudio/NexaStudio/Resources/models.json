@@ -1,0 +1,41 @@
+[
+  {
+    "id": "SmolVLM-256M-Instruct-Q8_0",
+    "name": "SmolVLM-256M-Instruct-Q8_0",
+    "mmprojOrTokenName": "mmproj-SmolVLM-256M-Instruct-Q8_0",
+    "sizeGb": 0.26,
+    "modelSize": 0.16,
+    "mmprojSize": 0.1,
+    "params": "256 M",
+    "features": ["Chat", "VLM"],
+    "type": "multimodal",
+    "modelUrl": "https://huggingface.co/ggml-org/SmolVLM-256M-Instruct-GGUF/resolve/main/SmolVLM-256M-Instruct-Q8_0.gguf?download=true",
+    "mmprojOrTokenUrl": "https://huggingface.co/ggml-org/SmolVLM-256M-Instruct-GGUF/resolve/main/mmproj-SmolVLM-256M-Instruct-Q8_0.gguf?download=true"
+  },
+  {
+    "id": "SmolVLM-256M-Instruct-f16",
+    "name": "SmolVLM-256M-Instruct-f16",
+    "mmprojOrTokenName": "mmproj-SmolVLM-256M-Instruct-f16",
+    "sizeGb": 0.49,
+    "modelSize": 0.31,
+    "mmprojSize": 0.18,
+    "params": "256 M",
+    "features": ["Chat", "VLM"],
+    "type": "multimodal",
+    "modelUrl": "https://huggingface.co/ggml-org/SmolVLM-256M-Instruct-GGUF/resolve/main/SmolVLM-256M-Instruct-f16.gguf?download=true",
+    "mmprojOrTokenUrl": "https://huggingface.co/ggml-org/SmolVLM-256M-Instruct-GGUF/resolve/main/mmproj-SmolVLM-256M-Instruct-f16.gguf?download=true"
+  },
+  {
+    "id": "Qwen3-0.6B-Q8_0",
+    "name": "Qwen3-0.6B-Q8_0",
+    "mmprojOrTokenName": "",
+    "sizeGb": 0.749,
+    "modelSize": 0.6,
+    "mmprojSize": 0.0,
+    "params": "0.6 B",
+    "features": ["Chat"],
+    "type": "chat",
+    "modelUrl": "https://huggingface.co/nexaml/Qwen3-0.6B/resolve/main/Qwen3-0.6B-Q8_0.gguf?download=true",
+    "mmprojOrTokenUrl":""
+  }
+]

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>LSSupportsOpeningDocumentsInPlace
+</key>
+	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>FKGroteskNeueTrial-Black.otf</string>
+		<string>FKGroteskNeueTrial-BlackItalic.otf</string>
+		<string>FKGroteskNeueTrial-Bold.otf</string>
+		<string>FKGroteskNeueTrial-BoldItalic.otf</string>
+		<string>FKGroteskNeueTrial-Italic.otf</string>
+		<string>FKGroteskNeueTrial-Light.otf</string>
+		<string>FKGroteskNeueTrial-LightItalic.otf</string>
+		<string>FKGroteskNeueTrial-Medium.otf</string>
+		<string>FKGroteskNeueTrial-MediumItalic.otf</string>
+		<string>FKGroteskNeueTrial-Regular.otf</string>
+		<string>FKGroteskNeueTrial-Thin.otf</string>
+		<string>FKGroteskNeueTrial-ThinItalic.otf</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+	</array>
+	<key>UIFileSharingEnabled</key>
+	<true/>
+</dict>
+</plist>
